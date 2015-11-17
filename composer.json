@@ -1,0 +1,19 @@
+{
+    "name": "tohir/mongodb",
+    "description": "MongoDB Database Class will Model Loader (uses Monga)",
+    "require": {
+        "league/monga": "1.2.1"
+    },
+    "keywords": ["database", "mongodb"],
+    "homepage": "http://github.com/tohir/mongodb",
+    "license": "MIT",
+    "authors": [{
+        "name": "Tohir Solomons",
+        "email": "tohir@tohir.co.za"
+    }],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }
+}
