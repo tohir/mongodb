@@ -6,10 +6,14 @@ use League\Monga;
 
 class MongoDatabase
 {
-    public function __construct()
+    public function __construct($database, $connectionString='', $server='localhost', $port='27017')
     {
-        $this->mongo = Monga::connection('mongodb://'.AppConfig::get('mongodb', 'server').':'.AppConfig::get('mongodb', 'port').'/'.AppConfig::get('mongodb', 'database'));
-        $this->mongo =  $this->mongo->database(AppConfig::get('mongodb', 'database'));
+        if (empty($connectionString)) {
+            $connectionString = 'mongodb://'.$server.':'.$port.'/'.$database;
+        }
+        
+        $this->mongo = Monga::connection($connectionString);
+        $this->mongo =  $this->mongo->database($database);
     }
     
     public function loadModel($modelName)
